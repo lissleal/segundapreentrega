@@ -4,20 +4,12 @@ import * as path from "path"
 import __dirname from "./utils.js";
 import ViewsRouter from "./router/views.routes.js";
 
-//Filesystem
-import ProductFsRouter from "./router/productsfs.routes.js";
-import CartFsRouter from "./router/cartsfs.routes.js";
 
 //Mongoose
 import mongoose from "mongoose";
 import cartsRouter from "./router/carts.routes.js";
 import productsRouter from "./router/products.routes.js";
 
-//Usados para filesystem
-import ProductManager from "./controlers/ProductManager.js";
-import CartManager from "./controlers/CartManager.js";
-const product = new ProductManager()
-const cart = new CartManager()
 
 //Creación de la aplicación Express y servidor HTTP:
 const app = express()
@@ -54,9 +46,6 @@ app.use("/", ViewsRouter)
 app.use("/api/carts", cartsRouter)
 app.use("/api/products", productsRouter)
 
-//Rutas para filesystem
-app.use("/api/productsfs", ProductFsRouter)
-app.use("/api/cartsfs", CartFsRouter)
 
 
 
